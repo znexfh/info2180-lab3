@@ -9,7 +9,16 @@ window.onload =function() {
     }   
     var prev ='O';
     (document.querySelectorAll('.square')).forEach(function(box,i){
-        box.addEventListener('click',function(e){
+        
+        box.addEventListener('mouseover',function(hov) {
+            hov.target.classList.add('hover');
+        });
+
+        box.addEventListener('mouseout',function(hov) {
+            hov.target.classList.remove('hover');
+        });
+
+        box.addEventListener('click',function(){
             
             if(prev=='O'){
                 box.textContent="X";
@@ -21,6 +30,7 @@ window.onload =function() {
                 prev='O';
             }
             boardstate[i]=box.textContent;
+
         });
     });
 }
