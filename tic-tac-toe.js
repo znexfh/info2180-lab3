@@ -90,5 +90,18 @@ window.onload =function() {
                 wnr.classList.add('you-won');
             }
         });
+
+        let nwG = document.querySelector('button');
+        nwG.addEventListener('click',function() {
+            wnr.textContent="Move your mouse over a square and click to play an X or an O.";
+            wnr.classList.remove('you-won');
+            squares= document.querySelectorAll('#board div');
+            (document.querySelectorAll('.square')).forEach(function(box,i){
+                box.classList.remove("X");
+                box.classList.remove("O");
+                box.textContent="";
+            });
+            boardstate=["","","","","","","",""];
+        });
     });
 }
