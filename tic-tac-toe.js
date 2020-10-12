@@ -20,8 +20,7 @@ window.onload =function() {
         });
 
         box.addEventListener('click',function(){
-            
-            if (boardstate[i]==""){
+            if(boardstate[i]==""){
             if(prev=='O'){
                 box.textContent="X";
                 box.classList.add('X');
@@ -92,6 +91,21 @@ window.onload =function() {
             }
         }});
 
+        if (boardstate[0]!=""&& boardstate[1]!=""&& boardstate[2]!=""&& boardstate[3]!=""&& boardstate[4]!=""&& boardstate[5]!=""&& boardstate[6]!=""&& boardstate[7]!=""&& boardstate[8]!=""){
+            let nwG = document.querySelector('button');
+            nwG.addEventListener('click',function() {
+            wnr.textContent="Move your mouse over a square and click to play an X or an O.";
+            wnr.classList.remove('you-won');
+            squares= document.querySelectorAll('#board div');
+            (document.querySelectorAll('.square')).forEach(function(box,i){
+                box.classList.remove("X");
+                box.classList.remove("O");
+                box.textContent="";
+            });
+            boardstate=["","","","","","","","",""];
+        });}
+        
+
         let nwG = document.querySelector('button');
         nwG.addEventListener('click',function() {
             wnr.textContent="Move your mouse over a square and click to play an X or an O.";
@@ -104,5 +118,6 @@ window.onload =function() {
             });
             boardstate=["","","","","","","","",""];
         });
+
     });
 }
