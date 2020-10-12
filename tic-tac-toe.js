@@ -2,7 +2,7 @@
 
 window.onload =function() {
     let squares= document.querySelectorAll('#board div');
-    var boardstate=["","","","","","","",""];
+    var boardstate=["","","","","","","","",""];
     var wnr;
 
     for (let i=0;i<9;i++){
@@ -21,6 +21,7 @@ window.onload =function() {
 
         box.addEventListener('click',function(){
             
+            if (boardstate[i]==""){
             if(prev=='O'){
                 box.textContent="X";
                 box.classList.add('X');
@@ -89,7 +90,7 @@ window.onload =function() {
                 wnr.textContent="Congratulations! "+w+" is the Winner!";
                 wnr.classList.add('you-won');
             }
-        });
+        }});
 
         let nwG = document.querySelector('button');
         nwG.addEventListener('click',function() {
@@ -101,7 +102,7 @@ window.onload =function() {
                 box.classList.remove("O");
                 box.textContent="";
             });
-            boardstate=["","","","","","","",""];
+            boardstate=["","","","","","","","",""];
         });
     });
 }
